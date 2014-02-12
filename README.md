@@ -8,4 +8,4 @@ License: Beerware
 
 ### What this is
 
-An iOS app to let you know if it's currently November or not, and how long until it is November if it's not currently November.
+An iOS app that informs you if it's currently November or not, and how long until it is November if it's not currently November.
