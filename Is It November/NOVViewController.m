@@ -26,8 +26,8 @@
     
 // TESTING - testing other dates
 //    NSDateComponents *testDate = [[NSDateComponents alloc] init];
-//    [testDate setMonth:10];
-//    [testDate setDay:31];
+//    [testDate setMonth:8];
+//    [testDate setDay:29];
 //    [testDate setHour:2];
 //    [testDate setMinute:0];
 //    [testDate setSecond:0];
