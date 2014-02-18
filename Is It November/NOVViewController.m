@@ -17,20 +17,19 @@
 
 @implementation NOVViewController
 
-- (void)viewDidLoad
+- (void)isItNovember
 {
-    [super viewDidLoad];
-    
     NSCalendar *calendar = [NSCalendar currentCalendar];
+    
     NSDate *currentDate = [NSDate date];
     
-// TESTING - testing other dates
+    // DEBUGGING - testing other dates
 //    NSDateComponents *testDate = [[NSDateComponents alloc] init];
-//    [testDate setMonth:8];
-//    [testDate setDay:29];
-//    [testDate setHour:2];
+//    [testDate setMonth:3];
+//    [testDate setDay:1];
+//    [testDate setHour:0];
 //    [testDate setMinute:0];
-//    [testDate setSecond:0];
+//    [testDate setSecond:1];
 //    [testDate setYear:2014];
 //    NSDate *currentDate = [calendar dateFromComponents:testDate];
     
@@ -77,11 +76,31 @@
         // If it's Oct 31 ..
         } else if ([currentDayComponents month] == 10 && [currentDayComponents day] == 31) {
             self.countdownLabel.text = @"It's November tomorrow.";
-        } else {
+        }  else if ([currentDayComponents month] == 10) {
+            self.countdownLabel.text = [NSString stringWithFormat:@"There are %d days until November.", days];
+        // If it's Sept 30 ..
+        } else if ([currentDayComponents month] == 9 && [currentDayComponents day] == 30) {
+            self.countdownLabel.text = [NSString stringWithFormat:@"There is %d month and %d day until November.", months, days];
+        // If it's Sept ..
+        } else if ([currentDayComponents month] == 9) {
+            self.countdownLabel.text = [NSString stringWithFormat:@"There is %d month and %d days until November.", months, days];
+        // If it's the end of any month ..
+        } else if ([comps day] == 1) {
+            self.countdownLabel.text = [NSString stringWithFormat:@"There are %d months and a day until November.", months];
+        } else if ([comps day] == 0) {
+            self.countdownLabel.text = [NSString stringWithFormat:@"There are %d months until November.", months];
         // Any other day ..
+        } else {
             self.countdownLabel.text = [NSString stringWithFormat:@"There are %d months and %d days until November.", months, days];
         }
     }
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self isItNovember];
 }
 
 @end
